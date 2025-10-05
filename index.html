@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowBoard | Your Creative Buddy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        --c1: #ee7752;
+        --c2: #e73c7e;
+        --c3: #23a6d5;
+        --c4: #23d5ab;
+        background: linear-gradient(-45deg, var(--c1), var(--c2), var(--c3), var(--c4));
+        background-size: 400% 400%;
+        animation: gradient 30s ease infinite;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in-fast {
+        animation: fadeIn 0.15s ease-out forwards;
+      }
+      @keyframes toast-in-out {
+        0%   { opacity: 0; transform: translate(-50%, 20px); }
+        10%  { opacity: 1; transform: translate(-50%, 0); }
+        90%  { opacity: 1; transform: translate(-50%, 0); }
+        100% { opacity: 0; transform: translate(-50%, -10px); }
+      }
+      .animate-toast {
+        animation: toast-in-out 3s ease-in-out forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <input
+      type="file"
+      id="file-input-global"
+      multiple
+      accept="image/png, image/jpeg"
+      className="hidden"
+      style="display: none;"
+    />
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
